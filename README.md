@@ -83,6 +83,7 @@ Follow the React-Native docs for a detailed walkthrough on producing and releasi
 * [react native](https://facebook.github.io/react-native/) - Build native mobile apps using JavaScript and React
 * [redux](https://redux.js.org/) - Redux is a predictable state container for JavaScript apps.
 * [ESLint](https://eslint.org) - The pluggable linting utility for JavaScript and JSX
+* [React navigation](https://reactnavigation.org/) - Routing and navigation for your React Native apps
 
 ## Contributing
 

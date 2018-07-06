@@ -1,26 +1,23 @@
 import React from 'react';
-import Provider from 'react-redux';
-import {Root, Container, List, ListItem, Text, StyleProvider, Spinner} from 'native-base';
-import {Font} from 'expo';
+import { YellowBox } from 'react-native';
+import { Provider } from 'react-redux';
+import {
+  Root, Container, List, ListItem, Text, StyleProvider, Spinner
+} from 'native-base';
 
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
-import Header from './components/Header';
 
-import {configureStore} from './store/init';
+import { configureStore } from './store/init';
 
 const store = configureStore();
 
 
 export default class App extends React.Component {
-  state = {loading: true};
+  state = { loading: true };
 
   async componentWillMount() {
-    await Font.loadAsync({
-      Roboto       : require('native-base/Fonts/Roboto.ttf'),
-      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf')
-    });
-    this.setState({loading: false});
+    this.setState({ loading: false });
   }
 
 
@@ -28,7 +25,7 @@ export default class App extends React.Component {
     if (this.state.loading) {
       return (
         <Root>
-          <Spinner color='blue'/>
+          <Spinner color='blue' />
         </Root>
       );
     }
@@ -37,7 +34,6 @@ export default class App extends React.Component {
       <Provider store={store}>
         <StyleProvider style={getTheme(material)}>
           <Container>
-            <Header/>
             <List>
               <ListItem>
                 <Text>Mtg. Mr Bob</Text>
@@ -56,3 +52,5 @@ export default class App extends React.Component {
   }
 }
 
+// https://github.com/facebook/react-native/issues/18868
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated']);

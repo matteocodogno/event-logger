@@ -2,11 +2,13 @@ import React from 'react';
 import { YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
 import {
-  Root, Container, List, ListItem, Text, StyleProvider, Spinner
+  Root, StyleProvider, Spinner
 } from 'native-base';
 
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
+
+import Routes from './views';
 
 import { configureStore } from './store/init';
 
@@ -33,19 +35,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <StyleProvider style={getTheme(material)}>
-          <Container>
-            <List>
-              <ListItem>
-                <Text>Mtg. Mr Bob</Text>
-              </ListItem>
-              <ListItem>
-                <Text>Call John</Text>
-              </ListItem>
-              <ListItem>
-                <Text>Interview Anne K.</Text>
-              </ListItem>
-            </List>
-          </Container>
+          <Routes />
         </StyleProvider>
       </Provider>
     );

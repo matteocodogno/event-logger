@@ -107,6 +107,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 To update emulator by CLI without open Android Studio you can run `sdkmanager --update`.
 
+How to get react-native run-ios to open in iTerm instead of Terminal on a macOS ? [Answer](https://stackoverflow.com/a/37815748/1310056)
+
 ## Acknowledgments
 
 

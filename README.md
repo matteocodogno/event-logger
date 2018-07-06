@@ -21,6 +21,33 @@ You will also need the last version of the command line tools installed.
 
 Install application dependencies with Yarn `yarn install`; as part of the installation, a pre-commit git hook should be installed through husky.
 
+#### Android
+
+To execute the App on Android emulator you need to install a platform SDK and configure an Android Virtual Device from Android Studio IDE.
+
+**SDK Manager**
+
+![Sdk manager](./docs/sdk_manager.png)
+
+**SDK Platforms**
+
+![Sdk platform](./docs/sdk_platform.png)
+
+Set the ANDROID_HOME environment variable `export ANDROID_HOME=~/Library/Android/sdk`, you can add this variable to your terminal (.bashrc, .zshrc etc..) configuration.
+
+There are 2 ways to create an AVD:
+
+1. by Android Studio
+2. by **avdmanager** CLI
+
+The steps to create an AVD by CLI are:
+
+- `cd $ANDROID_HOME/tools/bin`
+- `./sdkmanager "system-images;android-28;google_apis;x86"`
+- `./sdkmanager --licenses` - you have to accept all licenses
+- `./avdmanager create avd -n Pixel_2_API_28 -k "system-images;android-28;google_apis;x86" -d 17` - here you'll create the AVD
+- to check that all worked out run this command `./avdmanager list avd`
+
 ## Running the tests
 
 Run `yarn test` from the project root folder.
@@ -63,7 +90,7 @@ Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of cond
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -74,6 +101,10 @@ See also the list of [contributors](https://github.com/papasmurf17/event-logger/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Tips
+
+To update emulator by CLI without open Android Studio you can run `sdkmanager --update`.
 
 ## Acknowledgments
 

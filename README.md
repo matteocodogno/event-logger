@@ -21,6 +21,10 @@ You will also need the last version of the command line tools installed.
 
 Install application dependencies with Yarn `yarn install`; as part of the installation, a pre-commit git hook should be installed through husky.
 
+We need to install ios dependencies and to do that we have to run `pod install` from the **ios** folder.
+
+**P.S.** Cocoapods is the dependency manager for Xcode project, we can install it by run `sudo gem install cocoapods`.
+
 #### Android
 
 To execute the App on Android emulator you need to install a platform SDK and configure an Android Virtual Device from Android Studio IDE.

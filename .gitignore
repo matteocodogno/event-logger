@@ -66,4 +66,5 @@ buck-out/
 constants.js
 service-key.json
 ios/GoogleService-Info.plist
+ios/Pods
 android/app/google-services.json

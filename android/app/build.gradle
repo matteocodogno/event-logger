@@ -107,6 +107,16 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            if (project.hasProperty('EVENT_LOGGER_STORE_FILE')) {
+                storeFile file(EVENT_LOGGER_STORE_FILE)
+                storePassword EVENT_LOGGER_STORE_PASSWORD
+                keyAlias EVENT_LOGGER_KEY_ALIAS
+                keyPassword EVENT_LOGGER_KEY_PASSWORD
+            }
+        }
+    }
     splits {
         abi {
             reset()
@@ -137,9 +147,14 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-google-signin')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation(project(":react-native-google-signin")){
+        exclude group: "com.google.android.gms" // very important
+    }
+    implementation 'com.google.android.gms:play-services-auth:15.0.0'
 }
 
 // Run this once to be able to run the application with BUCK
@@ -148,3 +163,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+apply plugin: 'com.google.gms.google-services'

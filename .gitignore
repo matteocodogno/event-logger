@@ -40,7 +40,7 @@ yarn-error.log*
 
 # Android/IntelliJ
 #
-/.idea
+.idea
 build/
 .gradle
 local.properties
@@ -50,6 +50,7 @@ local.properties
 buck-out/
 \.buckd/
 *.keystore
+*.keystore.*
 
 # fastlane
 #

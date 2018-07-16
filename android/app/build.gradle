@@ -116,6 +116,12 @@ android {
                 keyPassword EVENT_LOGGER_KEY_PASSWORD
             }
         }
+        debug {
+            storeFile file(EVENT_LOGGER_STORE_FILE)
+            storePassword EVENT_LOGGER_STORE_PASSWORD
+            keyAlias EVENT_LOGGER_KEY_ALIAS
+            keyPassword EVENT_LOGGER_KEY_PASSWORD
+        }
     }
     splits {
         abi {

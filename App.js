@@ -17,15 +17,15 @@ const { store, persistor } = configureStore();
 
 
 export default class App extends React.Component {
+  onBeforeLift = () => {
+    // take some action before the gate lifts
+  };
+
   _loading = () => (
     <Root>
       <Spinner color='blue' />
     </Root>
   );
-
-  onBeforeLift = () => {
-    // take some action before the gate lifts
-  };
 
   render() {
     return (

@@ -27,6 +27,11 @@
   },
   "rules": {
     "key-spacing": 0,
+    "no-underscore-dangle": ["error",
+      {
+        "allowAfterThis": true
+      }
+    ],
     "jsx-quotes": [
       2,
       "prefer-single"

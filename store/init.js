@@ -16,7 +16,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 const persistConfig = {
   key: 'root',
   storage,
-  stateReconciler: hardSet,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

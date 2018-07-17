@@ -3,8 +3,11 @@ import {
   Container, Content
 } from 'native-base';
 import { GoogleSigninButton } from 'react-native-google-signin';
+import { connect } from 'react-redux';
 
-export default class SignIn extends React.Component {
+import { login } from '../../store/auth/actions';
+
+class SignIn extends React.Component {
   static navigationOptions = {
     title: 'Please sign in',
   };
@@ -30,3 +33,11 @@ export default class SignIn extends React.Component {
     );
   }
 }
+
+const mapStateToProps = null;
+
+const mapDispatchToProps = {
+  login
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

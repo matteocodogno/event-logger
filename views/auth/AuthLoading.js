@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   ActivityIndicator,
   StatusBar,
 } from 'react-native';
 import { Container } from 'native-base';
 
-export default class AuthLoading extends React.Component {
+class AuthLoading extends React.Component {
   constructor(props) {
     super(props);
     this.bootstrapAsync();
@@ -28,3 +29,11 @@ export default class AuthLoading extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  accessToken: state.auth.accessToken
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthLoading);

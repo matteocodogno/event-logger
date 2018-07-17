@@ -31,7 +31,7 @@ export const login = () => async dispatch => {
 export const logout = () => async dispatch => {
   await _configure();
 
-  await GoogleSignin.revokeAccess();
+  // await GoogleSignin.revokeAccess();
   await GoogleSignin.signOut();
 
   dispatch({

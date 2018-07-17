@@ -2,8 +2,11 @@ import React from 'react';
 import {
   Button, Container, Text, Grid, Col
 } from 'native-base';
+import { connect } from 'react-redux';
 
-export default class Home extends React.Component {
+import { logout } from '../../store/auth/actions';
+
+class Home extends React.Component {
   static navigationOptions = {
     title: 'Welcome to the app!',
   };
@@ -20,9 +23,16 @@ export default class Home extends React.Component {
   };
 
   render() {
-
+    const { name } = this.props;
     return (
       <Container>
+        <Grid>
+          <Col>
+            <Text>
+              {name}
+            </Text>
+          </Col>
+        </Grid>
         <Grid>
           <Col>
             <Button bordered block dark onPress={this.showMoreApp}>
@@ -43,3 +53,13 @@ export default class Home extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  name: state.auth.name
+});
+
+const mapDispatchToProps = {
+  logout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
